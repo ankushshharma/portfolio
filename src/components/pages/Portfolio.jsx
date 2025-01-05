@@ -324,17 +324,8 @@ const Portfolio = () => {
             {/* Centering the Download Button */}
             <div className="flex justify-center">
               <motion.a 
-                href="src/assets/resume/Ankush_Sharma_CV.pdf"
-                download="Ankush_Sharma_CV.pdf"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const link = document.createElement('a');
-                  link.href = '/src/assets/resume/Ankush_Sharma_CV.pdf';
-                  link.download = 'Ankush_Sharma_CV.pdf';
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                }}
+                href="https://drive.google.com/file/d/1OundTKUpiHwZ_-WmBuzo6ZWOh8ZyfRtQ/view?usp=sharing"
+                target="_blank"
               >
                 <DownloadButton />
               </motion.a>
