@@ -1,0 +1,8 @@
+.word {
+    display: inline-block;
+    will-change: transform, filter, opacity;
+    background: linear-gradient(90deg, #1163ff, #800080);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 90px;
+  }

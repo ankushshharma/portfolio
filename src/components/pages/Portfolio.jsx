@@ -14,21 +14,52 @@ import {
     Gamepad,
     Globe,
     LineChart,
-    Instagram
-} from 'lucide-react';
+    Instagram,
+    Heart, BrainCircuit } from 'lucide-react';
 import '../../../src/App.css';
 import Footer from './Footer';
+import { FaReact } from 'react-icons/fa'; 
 import SkillsSection from './SkillsSection';
-
+import DownloadButton from '../ui/DownloadButton';
+import { BlurText } from "../ui/BlurText";
+import ProfessionalTimeline from './ProfessionalTimeline';
+import EducationTimeline from './EducationTimeline';
+import SpecializedSkills from './SpecializedSkills';
+import HobbiesInterests from './HobbiesInterests';
+import ProjectsSection from './ProjectsSection';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 }
 };
 
+const typewriterVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.03
+    }
+  }
+};
+
+const letterVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.1
+    }
+  }
+};
+
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(false);
-  const [linksWorking, setLinksWorking] = useState(true);
+  const [showQuote, setShowQuote] = useState(false);
+  const [showSDET, setShowSDET] = useState(false);
+
+  //Experience Section data 
+
 
   useEffect(() => {
     if (darkMode) {
@@ -37,32 +68,6 @@ const Portfolio = () => {
       document.documentElement.classList.remove('dark');
     }
   }, [darkMode]);
-
-  useEffect(() => {
-    // Function to check if links are working
-    const checkLinks = async () => {
-      try {
-        const responses = await Promise.all([
-          fetch('https://www.linkedin.com/in/ankushshharma/'),
-          fetch('https://www.instagram.com/ankushshharma'),
-          fetch('https://github.com/ankushshharma')
-        ]);
-
-        // Log the status of each response
-        responses.forEach((response, index) => {
-          console.log(`Link ${index + 1} status: ${response.status}`);
-        });
-
-        // If any link fails, set linksWorking to false
-        setLinksWorking(responses.every(response => response.ok));
-      } catch (error) {
-        console.error('Error checking links:', error);
-        setLinksWorking(false);
-      }
-    };
-
-    checkLinks();
-  }, []);
 
   const skills = [
     { 
@@ -164,33 +169,56 @@ const Portfolio = () => {
               <div className="text-center mx-4 flex-grow">
                 <div className="whitespace-nowrap mx-12 mb-2">
                   <motion.h1 
-                    className={`text-4xl md:text-7xl font-extrabold mb-0 bg-gradient-to-r from-blue-900 to-purple-500 bg-clip-text text-transparent relative ${
+                    variants={typewriterVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className={`text-4xl md:text-7xl font-extrabold mb-0 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent relative ${
                       darkMode ? 'dark-mode-highlight' : ''
                     }`} 
-                    style={{ 
-                      fontFamily: 'Poppins, sans-serif',
-                      textShadow: darkMode ? '0px 2px 2px rgba(255, 255, 255, 0.9)' : 'none'
-                    }}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    onAnimationComplete={() => setShowSDET(true)}
                   >
-                    ANKUSH SHARMA
+                    {Array.from("ANKUSH SHARMA").map((char, index) => (
+                      <motion.span
+                        key={index}
+                        variants={letterVariants}
+                        className="inline-block"
+                        style={{ 
+                          whiteSpace: 'pre'
+                        }}
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
                   </motion.h1>
-                  <motion.h2 
-                    className="text-2xl md:text-5xl font-semibold mb-8 bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent"
-                    style={{ 
-                      fontFamily: 'Poppins, sans-serif',
-                      marginBottom: '1rem',
-                      lineHeight: 'normal',
-                      paddingBottom: '0.2em'
-                    }}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    SDET - Automation Engineer
-                  </motion.h2>
+                  
+                  {showSDET && (
+                    <motion.div 
+                      variants={typewriterVariants}
+                      initial="hidden"
+                      animate="visible"
+                      className="text-2xl md:text-5xl font-semibold mb-8 bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent"
+                      style={{ 
+                        fontFamily: 'Poppins, sans-serif',
+                        marginBottom: '1rem',
+                        lineHeight: 'normal',
+                        paddingBottom: '0.2em'
+                      }}
+                      onAnimationComplete={() => setShowQuote(true)}
+                    >
+                      {Array.from("SDET - Automation Engineer").map((char, index) => (
+                        <motion.span
+                          key={index}
+                          variants={letterVariants}
+                          className="inline-block"
+                          style={{ 
+                            whiteSpace: 'pre'
+                          }}
+                        >
+                          {char}
+                        </motion.span>
+                      ))}
+                    </motion.div>
+                  )}
                 </div>
               </div>
             </div>
@@ -211,9 +239,36 @@ const Portfolio = () => {
                 </a>
               ))}
             </div>
-            <p className="text-lg md:text-xl mb-10 text-gray-600 dark:text-gray-300">
-              Crafting robust automation frameworks and ensuring software quality
-            </p>    
+            {showQuote && (
+              <motion.div
+                variants={typewriterVariants}
+                initial="hidden"
+                animate="visible"
+                className="text-lg md:text-xl mb-6 text-gray-600 dark:text-gray-300"
+              >
+                {Array.from('"Crafting robust automation frameworks and ensuring software quality"').map((char, index) => (
+                  <motion.span
+                    key={index}
+                    variants={letterVariants}
+                    className="inline-block font-medium"
+                    style={{ 
+                      whiteSpace: 'pre'
+                    }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </motion.div>
+            )}
+            {/* <p className="text-lg md:text-xl mb-10 text-gray-600 dark:text-gray-300">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+              >
+                Crafting robust automation frameworks and ensuring software quality
+              </motion.span>
+            </p>     */}
             {/*Technical Skills Section */}
             <motion.section 
               className="py-16 px-4 md:px-8 max-w-7xl mx-auto"
@@ -266,17 +321,15 @@ const Portfolio = () => {
               </div>
 
             </motion.section>
-            <motion.a 
-              href="https://drive.google.com/file/d/1OundTKUpiHwZ_-WmBuzo6ZWOh8ZyfRtQ/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 hover:text-white transition-all shadow-lg hover:shadow-xl no-underline"
-            >
-              <Download className="mr-2" size={24} />
-              Download Resume
-            </motion.a>
+            {/* Centering the Download Button */}
+            <div className="flex justify-center">
+              <motion.a 
+                href="https://drive.google.com/file/d/1OundTKUpiHwZ_-WmBuzo6ZWOh8ZyfRtQ/view?usp=sharing"
+                target="_blank"
+              >
+                <DownloadButton />
+              </motion.a>
+            </div>
           </div>
         </motion.section>
 
@@ -375,48 +428,11 @@ const Portfolio = () => {
         viewport={{ once: true }}
         variants={fadeIn}
       >
-        <div className="w-full">
-          <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
-            Professional Experience
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {experienceData.map((role, index) => (
-              <motion.div 
-                key={index}
-                whileHover={{ 
-                  scale: 1.05,
-                  flex: 2,
-                  transition: { duration: 0.3 }
-                }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden relative group"
-              >
-                <div className="p-6">
-                  <div className="text-center">
-                    <h3 className="text-xl font-semibold text-blue-500 dark:text-blue-400">
-                      {role.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mt-2">
-                      {role.company}
-                    </p>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      {role.period}
-                    </p>
-                  </div>
-                  
-                  <div className="max-h-0 opacity-0 group-hover:max-h-[500px] group-hover:opacity-100 transition-all duration-500 ease-in-out">
-                    <ul className="mt-4 space-y-2 text-left">
-                      {role.details?.map((detail, i) => (
-                        <li key={i} className="text-gray-600 dark:text-gray-300 text-sm">
-                          • {detail}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        {/* Milestones Section */}
+        <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+        <ProfessionalTimeline />
         </div>
+        
       </motion.section>
 
       {/* Projects Section */}
@@ -427,81 +443,10 @@ const Portfolio = () => {
         viewport={{ once: true }}
         variants={fadeIn}
       >
-        <div className="w-full">
-          <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
-            Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                title: 'Automation Testing Framework',
-                tech: 'ASP.NET, .NET MVC, Java, Selenium, MySQL',
-                description: 'Developed and maintained a Selenium-based automation testing framework. Integrated the framework into CI/CD pipelines.',
-                buttonText: 'Ongoing'
-              },
-              {
-                title: 'SynchroFit - Workout & Diet Planner',
-                tech: 'React, SpringBoot,API, Gemini AI',
-                description: 'AI-Powered Fitness Revolution. Experience the future of fitness with our intelligent AI system that creates perfectly tailored workout and nutrition plans just for you.',
-                buttonText: 'Click here'
-              },
-              {
-                title: 'Up Tech - Tech news app',
-                tech: 'React, SpringBoot, MySQL',
-                description: 'Created a technical news portal with React JS for frontend and Sprintboot MVC for the backend. Integrated News API for content.',
-                buttonText: 'Deprecated'
-              },
-              {
-                title: 'CodeCritique - AI Code Reviewer',
-                tech: 'React, SpringBoot, Gemini AI',
-                description: 'AI-Powered Code Reviewer. Experience the future of code review with our intelligent AI system that creates perfectly tailored workout and nutrition plans just for you.',
-                buttonText: 'Upcoming'
-              }
-            ].map((project, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ 
-                  scale: 1.05,
-                  flex: 2,
-                  transition: { duration: 0.3 }
-                }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden relative group"
-              >
-                <div className="p-6">
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                      {project.title}
-                    </h3>
-                    <p className="text-blue-500 dark:text-blue-400">{project.tech}</p>
-                    <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
-                  </div>
-                  
-                  <div className="max-h-0 overflow-hidden group-hover:max-h-48 transition-all duration-300">
-                    <div className="text-center mt-4">
-                      <button 
-                        className={`px-6 py-2 text-white rounded-lg transition-colors text-sm
-                          ${project.buttonText === 'Ongoing' 
-                            ? 'bg-green-600 hover:bg-gray-500 cursor-not-allowed' 
-                            : project.buttonText === 'Click here'
-                            ? 'bg-blue-600 hover:bg-blue-700 cursor-pointer' 
-                            : 'bg-red-600 hover:bg-gray-500 cursor-not-allowed'}`}
-                        disabled={project.buttonText !== 'Click here'}
-                        onClick={() => {
-                          if (project.buttonText === 'Click here') {
-                            // Add your click handler here
-                            window.open('your-project-url', '_blank');
-                          }
-                        }}
-                      >
-                        {project.buttonText}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+      <ProjectsSection />
         </div>
+
       </motion.section>
 
       {/* Education Section */}
@@ -513,63 +458,85 @@ const Portfolio = () => {
         viewport={{ once: true }}
         variants={fadeIn}
       >
-        <div className="w-full">
-          <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
-            Education Record
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Bachelor of Technology',
-                period: '2019-2023',
-                details: 'Majors: Computer Science Engineering - 7.8 CGPA',
-                institution: 'Chandigarh Engineering College, Mohali, Punjab'
-              },
-              {
-                title: '12th',
-                period: '2018-2019',
-                details: 'Senior Secondary - 76%',
-                institution: 'Khalsa Public School, Saharanpur, UP - 247001'
-              },
-              {
-                title: '10th',
-                period: '2016-2017',
-                details: 'Matric - 76%',
-                institution: 'Khalsa Public School, Saharanpur, UP - 247001'
-              }
-            ].map((education, index) => (
-              <motion.div 
-                key={index}
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 overflow-hidden relative group"
-              >
-                <div className="text-center">
-                  <h3 className="text-xl font-semibold text-blue-500 dark:text-blue-400">
-                    {education.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mt-2">
-                    {education.period}
-                  </p>
-                </div>
-                <div className="max-h-0 opacity-0 group-hover:max-h-48 group-hover:opacity-100 transition-all duration-500 ease-in-out">
-                  <p className="text-gray-600 dark:text-gray-300 mt-4">
-                    {education.details}
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {education.institution}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+            <EducationTimeline  />
         </div>
       </motion.section>
 
       {/* More Skills Section */}
-      <SkillsSection />
+      <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+          <SpecializedSkills />
+      </div>
+      <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+      <HobbiesInterests />
+      
+      <div className="py-16 w-full px-4 md:px-8 max-w-7xl mx-auto">
+  <div className="madewith text-2xl"> {/* Increased from text-lg */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className="flex items-center justify-center space-x-6 text-xl font-medium text-gray-600 dark:text-gray-300" 
+      // Increased space-x-4 to space-x-6, text-base to text-xl, added font-medium
+    >
+      <span className="text-1xl"> {/* Increased text size */}
+        Made with
+      </span>
+      
+      {/* React Icon */}
+      <motion.div
+        animate={{ 
+          rotate: [0, 360]
+        }}
+        transition={{ 
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="text-blue-500 dark:text-blue-400"
+      >
+        <FaReact size={32} /> {/* Increased from 24 */}
+      </motion.div>
+      
+      {/* AI Icon */}
+      <motion.div
+        animate={{ 
+          scale: [1, 1.1, 1],
+        }}
+        transition={{ 
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "reverse"
+        }}
+        className="text-purple-500 dark:text-purple-400"
+      >
+        <BrainCircuit size={32} /> {/* Increased from 24 */}
+      </motion.div>
+      
+      <span className="text-1xl"> {/* Increased text size */}
+        and
+      </span>
+      
+      {/* Heart Icon */}
+      <motion.div
+        animate={{ 
+          scale: [1, 1.2, 1],
+          rotate: [0, 10, -10, 0]
+        }}
+        transition={{ 
+          duration: 1.5,
+          repeat: Infinity,
+          repeatType: "reverse"
+        }}
+        className="text-red-500 dark:text-red-400"
+      >
+        <Heart size={32} /> {/* Increased from 24 */}
+      </motion.div>
+    </motion.div> 
+  </div>
+</div>
+
+      </div>
 
       {/* Footer Section */}
       <Footer />
