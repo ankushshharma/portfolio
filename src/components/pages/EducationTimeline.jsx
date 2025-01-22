@@ -64,7 +64,7 @@ const EducationTimeline = () => {
         
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-purple-400 to-green-400 dark:from-blue-500 dark:via-purple-500 dark:to-green-500"></div>
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-purple-400 to-green-400 dark:from-blue-500 dark:via-purple-500 dark:to-green-500"></div>
           
           {/* Education Items */}
           {education.map((edu, index) => (
@@ -75,12 +75,12 @@ const EducationTimeline = () => {
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
               }`}
             >
-              {/* Timeline dot */}
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white dark:bg-gray-800 border-2 border-blue-500 dark:border-blue-400 z-10"></div>
+              {/* Timeline dot - adjusted left positioning to match line */}
+              <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white dark:bg-gray-800 border-2 border-blue-500 dark:border-blue-400 z-10"></div>
               
-              {/* Content card */}
-              <div className={`ml-12 md:ml-0 md:w-1/2 ${
-                index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
+              {/* Content card - adjusted margin and width for consistency */}
+              <div className={`ml-16 md:ml-0 md:w-1/2 w-[calc(100%-4rem)] ${
+                index % 2 === 0 ? 'md:pr-16' : 'md:pl-16'
               }`}>
                 <motion.div
                   whileHover={{ 
@@ -91,7 +91,7 @@ const EducationTimeline = () => {
                       damping: 15
                     }
                   }}
-                  className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700 relative overflow-hidden group"
+                  className="w-full bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700 relative overflow-hidden group"
                 >
                   {/* Top Gradient Bar */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${edu.color}`}></div>

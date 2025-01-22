@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Dumbbell, Newspaper, Bot } from 'lucide-react'; // Import icons for projects
 import Synchrofit from '../../assets/previews/SynchroFit.png';
+import Socify from '../../assets/previews/Socify-App.png';
 
 const ProjectsSection = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -41,6 +42,17 @@ const ProjectsSection = () => {
       status: 'active',
       url: 'https://synchrofit.netlify.app/',
       screenshot: Synchrofit
+    },
+    {
+      title: 'Socify - Instagram Post downloader',
+      tech: 'React, NodeJS',
+      description: 'Socify is a web app that allows you to download Instagram posts and videos.',
+      buttonText: 'Click here',
+      icon: <Bot size={24} />,
+      color: 'from-purple-400 to-purple-600',
+      status: 'active',
+      url: 'https://socify-app.netlify.app/',
+      screenshot: Socify
     },
     {
       title: 'Up Tech - Tech news app',
@@ -92,6 +104,8 @@ const ProjectsSection = () => {
     setIsHovered(false);
   };
 
+  
+
   return (
     <motion.section 
       id="projects"
@@ -128,7 +142,8 @@ const ProjectsSection = () => {
                     damping: 15
                   }
                 }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden relative group border border-gray-100 dark:border-gray-700"
+                className={`bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden relative group border border-gray-100 dark:border-gray-700 
+                  ${projects.length % 2 !== 0 && index === projects.length - 1 ? 'md:col-span-2' : ''}`}
               >
                 {/* Top Gradient Bar */}
                 <div className={`h-1 w-full bg-gradient-to-r ${project.color}`} />
@@ -149,7 +164,7 @@ const ProjectsSection = () => {
                   </div>
 
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 justify-center">
                     {project.tech.split(', ').map((tech, i) => (
                       <span
                         key={i}

@@ -9,20 +9,31 @@ html, body {
   width: 100%;
   background-color: var(--bg-color);
   position: relative;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.app-container::-webkit-scrollbar {
+  display: none;
 }
 
 #root {
-  @apply max-w-full m-0 p-0 text-center;
+  @apply max-w-full m-0 p-0 text-center overflow-x-hidden;
   display: flex;
   flex-wrap: wrap;
   background-color: var(--bg-color);
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  width: 100%;;
+  width: 100%;
   box-sizing: border-box;
   padding: 8px;  /* Reduced padding for mobile */
-  overflow-x: hidden;
 }
 
 @media (min-width: 768px) {
@@ -90,11 +101,16 @@ html, body {
 }
 
 .app-container {
-  @apply min-h-screen transition-colors duration-300;
+  @apply min-h-screen w-full transition-colors duration-300 overflow-x-hidden;
   background-color: var(--bg-color);
   color: var(--text-color);
-  width: 100%;
-  overflow-x: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
 }
 
 .dark-mode-highlight {
@@ -104,8 +120,8 @@ html, body {
 
 /* Scroll container styles */
 .scroll-container {
-  @apply relative w-full overflow-hidden bg-transparent transition-colors duration-300;
-  max-width: 100vw;
+  @apply relative w-full overflow-x-hidden bg-transparent transition-colors duration-300;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 8px;
   box-sizing: border-box;
