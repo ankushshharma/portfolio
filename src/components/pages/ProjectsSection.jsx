@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Code2, Dumbbell, Newspaper, Bot } from 'lucide-react'; // Import icons for projects
 import Synchrofit from '../../assets/previews/SynchroFit.png';
 import Socify from '../../assets/previews/Socify-App.png';
+import JaunGPT from '../../assets/previews/JaunGPT.png';
 
 const ProjectsSection = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -53,6 +54,17 @@ const ProjectsSection = () => {
       status: 'active',
       url: 'https://socify-app.netlify.app/',
       screenshot: Socify
+    },
+    {
+      title: 'JaunGPT - AI Chatbot',
+      tech: 'React, NodeJS',
+      description: 'JaunGPT is an AI chatbot that becomes your companion, a chatbot inspired by the wit and wisdom of Jaun Elia.',
+      buttonText: 'Click here',
+      icon: <Bot size={24} />,
+      color: 'from-purple-400 to-purple-600',
+      status: 'active',
+      url: 'https://jaungpt.netlify.app/',
+      screenshot: JaunGPT
     },
     {
       title: 'Up Tech - Tech news app',
