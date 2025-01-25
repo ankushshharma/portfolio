@@ -260,15 +260,7 @@ const Portfolio = () => {
                 ))}
               </motion.div>
             )}
-            {/* <p className="text-lg md:text-xl mb-10 text-gray-600 dark:text-gray-300">
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-              >
-                Crafting robust automation frameworks and ensuring software quality
-              </motion.span>
-            </p>     */}
+            
             {/*Technical Skills Section */}
             <motion.section 
               className="py-16 px-4 md:px-8 max-w-7xl mx-auto"
