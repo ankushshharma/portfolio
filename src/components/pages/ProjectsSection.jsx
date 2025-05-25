@@ -16,8 +16,19 @@ const ProjectDisplay = () => {
       buttonText: 'Ongoing',
       icon: <Code2 size={24} />,
       color: 'from-green-400 to-green-600',
-      status: 'ongoing',
+      status: 'active',
       screenshot: 'https://placehold.co/600x400?text=ongoing'
+    },
+    {
+      title: 'NexLetter - AI Document Generator',
+      tech: 'React, Spring Boot, Gemini AI, REST APIs',
+      description: 'Developed an AI-powered web application with React and Spring Boot backend, integrating Gemini AI via REST APIs for generating personalized referral emails, messages, and cover letters. Reduced manual writing time by 45% through seamless AI-assisted document generation.',
+      buttonText: 'Click here',
+      icon: <Bot size={24} />,
+      color: 'from-purple-400 to-purple-600',
+      status: 'active',
+      url: '#',
+      screenshot: 'https://placehold.co/600x400?text=NexLetter'
     },
     {
       title: 'SynchroFit - Workout & Diet Planner',
@@ -37,7 +48,7 @@ const ProjectDisplay = () => {
       buttonText: 'Click here',
       icon: <Bot size={24} />,
       color: 'from-purple-400 to-purple-600',
-      status: 'active',
+      status: 'deprecated',
       url: 'https://socify-app.netlify.app/',
       screenshot: Socify
     },
@@ -48,7 +59,7 @@ const ProjectDisplay = () => {
       buttonText: 'Click here',
       icon: <Bot size={24} />,
       color: 'from-purple-400 to-purple-600',
-      status: 'active',
+      status: 'deprecated',
       url: 'https://jaungpt.netlify.app/',
       screenshot: JaunGPT
     },
@@ -90,7 +101,7 @@ const ProjectDisplay = () => {
       buttonText: 'Click here',
       icon: <Dumbbell size={24} />,
       color: 'from-blue-400 to-blue-600',
-      status: 'active',
+      status: 'deprecated',
       url: 'https://sensethrough.netlify.app/',
       screenshot: SenseThrough
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Book, Bot, Gamepad,User } from 'lucide-react';
+import { Code2, TestTube, Bot, Briefcase, Database, Server, Cloud, GitBranch } from 'lucide-react';
 
 const SkillsSection = () => {
   const fadeIn = {
@@ -56,34 +56,73 @@ const SkillsSection = () => {
   );
 
   const skillsData = {
-    specialized: {
-      title: "Specialized Skills",
-      icon: Globe,
+    programming: {
+      title: "Programming Languages",
+      icon: Code2,
       skills: [
-        { name: "Manual Testing (Functional, Regression, Smoke Testing)" },
-        { name: "AI-Powered Development Tools: Codeium, Claude AI, Cursor AI, ChatGPT" },
-        { name: "Agile Methodologies: Scrum, Kanban" },
-        { name: "Cross-Functional Team Collaboration" }
+        { name: "Java (Core, Collections, Concurrency, Stream API)", icon: Code2 },
+        { name: "JavaScript (ES6+)", icon: Code2 },
+        { name: "Data Structures & Algorithms", icon: Code2 }
       ]
     },
-    hobbies: {
-      title: "Hobbies & Interests",
-      icon: Book,
+    frontend: {
+      title: "Frontend Development",
+      icon: Server,
       skills: [
-        { name: "Reading tech blogs", icon: Book },
-        { name: "Exploring AI tools", icon: Bot },
-        { name: "Playing Video Games", icon: Gamepad }
+        { name: "React", icon: Server },
+        { name: "Angular", icon: Server },
+        { name: "HTML5 & CSS3", icon: Server },
+        { name: "Responsive Design", icon: Server }
       ]
     },
-    soft: {
-      title: "Soft Skills",
-      icon: User,
+    backend: {
+      title: "Backend & Database",
+      icon: Database,
       skills: [
-        { name: "Attention to Detail" },
-        { name: "Analytical Thinking" },
-        { name: "Problem-Solving" },
-        { name: "Communication Skills" },
-        { name: "Team Collaboration" }
+        { name: "Spring Boot (Core, Cloud)", icon: Database },
+        { name: "RESTful APIs & Microservices", icon: Database },
+        { name: "MySQL & PostgreSQL", icon: Database },
+        { name: "Query Optimization & Indexing", icon: Database }
+      ]
+    },
+    cloud: {
+      title: "Cloud & DevOps",
+      icon: Cloud,
+      skills: [
+        { name: "AWS (EC2, S3)", icon: Cloud },
+        { name: "Docker & Kubernetes", icon: Cloud },
+        { name: "Jenkins & Git", icon: Cloud },
+        { name: "CI/CD Pipelines", icon: Cloud }
+      ]
+    },
+    testing: {
+      title: "Testing & Automation",
+      icon: TestTube,
+      skills: [
+        { name: "Selenium", icon: TestTube },
+        { name: "JUnit", icon: TestTube },
+        { name: "End-to-End Testing", icon: TestTube },
+        { name: "TDD & Automation Frameworks", icon: TestTube }
+      ]
+    },
+    ai: {
+      title: "AI & Integration",
+      icon: Bot,
+      skills: [
+        { name: "OpenAI API", icon: Bot },
+        { name: "Gemini AI", icon: Bot },
+        { name: "Claude API", icon: Bot },
+        { name: "API Integration", icon: Bot }
+      ]
+    },
+    management: {
+      title: "Project Management",
+      icon: Briefcase,
+      skills: [
+        { name: "Jira", icon: Briefcase },
+        { name: "Agile (Scrum, Kanban)", icon: Briefcase },
+        { name: "SDLC", icon: Briefcase },
+        { name: "Team Collaboration", icon: Briefcase }
       ]
     }
   };
@@ -97,9 +136,9 @@ const SkillsSection = () => {
       variants={fadeIn}
     >
       <div className="w-full">
-        <div className="my-6">
-          <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
-            More About Me
+        <div className="my-2">
+          <h2 className="text-3xl font-bold mb-2 text-gray-900 dark:text-white">
+            Technical Expertise
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
             {Object.values(skillsData).map((section, index) => (

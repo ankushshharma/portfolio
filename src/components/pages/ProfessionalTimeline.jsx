@@ -29,38 +29,23 @@ const ProfessionalTimeline = ({ className = '' }) => {
 
   const experiences = [
     {
-      period: 'Feb 2024 - Present',
-      title: 'Associate Software Testing Engineer - QA',
-      company: 'TalentNeuron, Chennai',
+      period: 'Sep 2023 - Present',
+      title: 'Associate Software Engineer',
+      company: 'TalentNeuron (Leiten technologies)',
       responsibilities: [
-        'Developed and maintained automation testing frameworks',
-        'Created and modified scripts for performance testing using JMeter',
-        'Enhanced and modified Java Selenium code for automated testing',
-        'Managed databases for automation executions on the Automation Portal',
-        'Handled Dynatrace Synthetic Monitors for application performance monitoring',
-        'Collaborated closely with the Data Harvesting team to ensure accurate data collection and analysis',
-        'Worked closely with the DAAS team on API testing, ensuring seamless integration and high-quality API performance'
+        'Developed responsive frontends using React and Angular, integrated with Java, Spring Boot, and RESTful APIs',
+        'Optimized database performance with JPA/Hibernate, reducing query load by 40%',
+        'Integrated AI functionalities via OpenAI APIs for auto-healing XPaths, accelerating testing workflows by 72%',
+        'Leveraged AWS (EC2 for hosting, S3 for storage) to enhance application scalability and reliability'
       ]
     },
     {
-      period: 'Sep 2023 - Dec 2023',
-      title: 'Associate Software Testing Engineer - Intern',
-      company: 'TalentNeuron, Chennai',
-      responsibilities: [
-        'Executed manual test cases and reported defects, contributing to the improvement of software quality',
-        'Performed black-box testing to ensure compliance with specified requirements',
-        'Collaborated with developers to clarify requirements and expected outcomes',
-        'Assisted in the development of test plans and test cases, ensuring thorough test coverage'
-      ]
-    },
-    {
-      period: 'Feb 2023 - June 2023',
+      period: 'Feb 2023 - Jul 2023',
       title: 'Full Stack Web Developer',
-      company: 'Koskill Education, Bangalore',
+      company: 'Koskill Education',
       responsibilities: [
-        'Developed an RSS news aggregator using the MERN stack (MongoDB, Express.js, React.js, Node.js)',
-        'Collaborated with senior developers to improve code quality and project efficiency',
-        'Applied best practices in web development, resulting in a project that met deadlines and client expectations'
+        'Built a single-page RSS aggregator using React and Node.js, improving content delivery speed by 15%',
+        'Improved code quality and reduced bug rates by 10% through daily code reviews and adherence to clean code principles'
       ]
     }
   ];

@@ -27,6 +27,7 @@ import EducationTimeline from './EducationTimeline';
 import SpecializedSkills from './SpecializedSkills';
 import HobbiesInterests from './HobbiesInterests';
 import ProjectsSection from './ProjectsSection';
+import LinkedInPreviewCard from './LinkedInPreviewCard';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -72,17 +73,29 @@ const Portfolio = () => {
   const skills = [
     { 
       icon: <Code size={32} className="text-blue-500 hover:text-blue-600 transition-colors" />, 
-      name: 'Automation Testing', 
-      details: 'Selenium, TestNG, Postman' 
+      name: 'Programming Languages', 
+      details: 'Java (Core, Collections, Concurrency, Stream API), JavaScript (ES6+)' 
     },
     { 
-      icon: <LineChart size={24} className="text-blue-500 hover:text-blue-600 transition-colors" />, 
-      name: 'Performance Testing', 
-      details: 'JMeter, Dynatrace' 
+      icon: <Server size={24} className="text-blue-500 hover:text-blue-600 transition-colors" />, 
+      name: 'Frontend & Backend', 
+      details: 'React, Angular, Spring Boot, RESTful APIs, Microservices' 
     },
-    { icon: <Server size={24} />, name: 'Web Technologies', details: 'React, ASP.NET, Spring Boot' },
-    { icon: <Database size={24} />, name: 'Databases', details: 'MySQL' },
-    { icon: <Bot size={24} />, name: 'AI Tools', details: 'Codeium, ChatGPT, Claude AI' }
+    { 
+      icon: <Database size={24} className="text-blue-500 hover:text-blue-600 transition-colors" />, 
+      name: 'Databases & Cloud', 
+      details: 'MySQL, PostgreSQL, AWS (EC2, S3), Docker, Kubernetes' 
+    },
+    { 
+      icon: <TestTube size={24} className="text-blue-500 hover:text-blue-600 transition-colors" />, 
+      name: 'Testing & DevOps', 
+      details: 'Selenium, JUnit, Jenkins, Git, CI/CD Pipelines' 
+    },
+    { 
+      icon: <Bot size={24} className="text-blue-500 hover:text-blue-600 transition-colors" />, 
+      name: 'AI & Tools', 
+      details: 'OpenAI API, Gemini AI, Claude, Jira, Agile' 
+    }
   ];
 
   const experienceData = [
@@ -205,7 +218,7 @@ const Portfolio = () => {
                       }}
                       onAnimationComplete={() => setShowQuote(true)}
                     >
-                      {Array.from("Software Development Engineer").map((char, index) => (
+                      {Array.from("JAVA  FULL  STACK  DEVELOPER").map((char, index) => (
                         <motion.span
                           key={index}
                           variants={letterVariants}
@@ -246,7 +259,7 @@ const Portfolio = () => {
                 animate="visible"
                 className="text-lg md:text-xl mb-6 text-gray-600 dark:text-gray-300"
               >
-                {Array.from('"Crafting robust automation frameworks and ensuring software quality"').map((char, index) => (
+                {Array.from('Building Scalable Java Applications.').map((char, index) => (
                   <motion.span
                     key={index}
                     variants={letterVariants}
@@ -279,35 +292,37 @@ const Portfolio = () => {
                   {/* First set of icons */}
                   <div className="flex space-x-6 md:space-x-12 shrink-0">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-plain-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
                   </div>
                   
                   {/* Duplicate set for seamless loop */}
                   <div className="flex space-x-6 md:space-x-12 shrink-0">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-plain-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original-wordmark.svg" className="w-12 h-12 md:w-16 md:h-16 hover:scale-125 transition-transform duration-300" />
                   </div>
                 </div>
               </div>
@@ -316,7 +331,8 @@ const Portfolio = () => {
             {/* Centering the Download Button */}
             <div className="flex justify-center">
               <motion.a 
-                href="https://drive.google.com/file/d/1m6Fhy9fglx2DgOWCUA0A4enWuS_lg9h3/view?usp=sharing"
+                href="/src/assets/resume/Ankush_Sharma_Resume.pdf"
+                download="Ankush_Sharma_Resume.pdf"
                 target="_blank"
               >
                 <DownloadButton />
@@ -341,7 +357,7 @@ const Portfolio = () => {
             About Me
           </h2>
           <p className="text-lg md:text-xl mb-10 text-gray-600 dark:text-gray-300">
-            Detail-oriented and enthusiastic <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">Software Development Engineer</span> with hands-on experience in <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">developing</span> robust automation frameworks, conducting performance testing, and ensuring software quality across multiple platforms. Proficient in <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">Java</span>, <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">.NET</span>, <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">Selenium</span>, TestNG, JMeter, <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">React JS</span>, <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">ASP.NET</span>, <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">Spring Boot</span>, and <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">MySQL</span>. Skilled in <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">integrating AI tools with work</span> to enhance test automation, optimize workflows, and improve overall software quality. Known for strong collaboration across cross-functional teams to drive high-quality software delivery. Eager to bring technical expertise and problem-solving abilities to a dynamic QA Automation Engineer role.
+            Java Full Stack Developer with 2 years of experience building scalable, high-performance web applications. Proficient in <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">Java</span>, <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">Spring Boot</span>, <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">REST APIs</span>, <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">React</span>, <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">Angular</span>, and <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">microservices architecture</span>. Strong problem-solving skills with hands-on expertise in <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">cloud deployments (AWS)</span>, <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">DevOps (Docker, CI/CD)</span>, and <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-bold">AI integration</span>. Adept at Agile methodologies and delivering robust solutions in fast-paced environments. Open to challenging opportunities in leading organizations and remote teams.
           </p>
         </div>
       </motion.section>
@@ -349,7 +365,7 @@ const Portfolio = () => {
       {/* Skills Section */}
       <motion.section 
         id="skills"
-        className="py-16 px-4 md:px-8 max-w-7xl mx-auto"
+        className="py-8 px-4 md:px-8 max-w-7xl mx-auto"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -364,7 +380,7 @@ const Portfolio = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 dark:from-gray-800 dark:via-indigo-900 dark:to-gray-800 -skew-y-3 transform rounded-3xl -z-10"></div>
             
             {/* Cards Container */}
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 py-12 px-4">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 py-6 px-4">
               {skills.map((skill, index) => (
                 <motion.div   
                   key={index}
@@ -421,7 +437,7 @@ const Portfolio = () => {
         variants={fadeIn}
       >
         {/* Milestones Section */}
-        <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+        <div className="bg-gray-50 dark:bg-gray-900">
         <ProfessionalTimeline />
         </div>
         
@@ -435,7 +451,7 @@ const Portfolio = () => {
         viewport={{ once: true }}
         variants={fadeIn}
       >
-        <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+        <div className="bg-gray-50 dark:bg-gray-900">
       <ProjectsSection />
         </div>
 
@@ -450,83 +466,19 @@ const Portfolio = () => {
         viewport={{ once: true }}
         variants={fadeIn}
       >
-        <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+        <div className="bg-gray-50 dark:bg-gray-900">
             <EducationTimeline  />
         </div>
       </motion.section>
 
       {/* More Skills Section */}
-      <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+      <div className="bg-gray-50 dark:bg-gray-900">
           <SpecializedSkills />
       </div>
-      <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+      <div className="bg-gray-50 dark:bg-gray-900">
       <HobbiesInterests />
       
-      <div className="py-16 w-full px-4 md:px-8 max-w-7xl mx-auto">
-  <div className="madewith text-2xl"> {/* Increased from text-lg */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.3 }}
-      className="flex items-center justify-center space-x-6 text-xl font-medium text-gray-600 dark:text-gray-300" 
-      // Increased space-x-4 to space-x-6, text-base to text-xl, added font-medium
-    >
-      <span className="text-1xl"> {/* Increased text size */}
-        Made with
-      </span>
-      
-      {/* React Icon */}
-      <motion.div
-        animate={{ 
-          rotate: [0, 360]
-        }}
-        transition={{ 
-          duration: 8,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="text-blue-500 dark:text-blue-400"
-      >
-        <FaReact size={32} /> {/* Increased from 24 */}
-      </motion.div>
-      
-      {/* AI Icon */}
-      <motion.div
-        animate={{ 
-          scale: [1, 1.1, 1],
-        }}
-        transition={{ 
-          duration: 2,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-        className="text-purple-500 dark:text-purple-400"
-      >
-        <BrainCircuit size={32} /> {/* Increased from 24 */}
-      </motion.div>
-      
-      <span className="text-1xl"> {/* Increased text size */}
-        and
-      </span>
-      
-      {/* Heart Icon */}
-      <motion.div
-        animate={{ 
-          scale: [1, 1.2, 1],
-          rotate: [0, 10, -10, 0]
-        }}
-        transition={{ 
-          duration: 1.5,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-        className="text-red-500 dark:text-red-400"
-      >
-        <Heart size={32} /> {/* Increased from 24 */}
-      </motion.div>
-    </motion.div> 
-  </div>
-</div>
+      <LinkedInPreviewCard />
 
       </div>
 
