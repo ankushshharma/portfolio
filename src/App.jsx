@@ -19,7 +19,7 @@ function App() {
     <Router>
       <div className={`app-container ${darkMode ? 'dark' : 'light'}`}>
         <Routes>
-          <Route path="/" element={<Portfolio />} />
+          <Route path="/" element={<Portfolio darkMode={darkMode} />} />
         </Routes>
         <div className="theme-toggle-container">
           <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />

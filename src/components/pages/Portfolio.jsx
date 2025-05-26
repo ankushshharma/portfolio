@@ -28,6 +28,7 @@ import SpecializedSkills from './SpecializedSkills';
 import HobbiesInterests from './HobbiesInterests';
 import ProjectsSection from './ProjectsSection';
 import LinkedInPreviewCard from './LinkedInPreviewCard';
+import CertificatesPortfolio from './CertificatesPortfolio';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -54,8 +55,7 @@ const letterVariants = {
   }
 };
 
-const Portfolio = () => {
-  const [darkMode, setDarkMode] = useState(false);
+const Portfolio = ({ darkMode }) => {
   const [showQuote, setShowQuote] = useState(false);
   const [showSDET, setShowSDET] = useState(false);
 
@@ -483,6 +483,7 @@ const Portfolio = () => {
       </div>
 
       {/* Footer Section */}
+      <CertificatesPortfolio darkMode={darkMode} />
       <Footer />
     </div>
   );
