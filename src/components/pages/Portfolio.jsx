@@ -55,6 +55,9 @@ const letterVariants = {
   }
 };
 
+const GOOGLE_DRIVE_RESUME_URL = 'https://drive.google.com/file/d/1aqfDZjKMyfF1oSLoVnYyUYFA57ZNHhuQ/view?usp=sharing';
+const LOCAL_RESUME_PATH = '/src/assets/resume/Ankush_Sharma_Resume.pdf';
+
 const Portfolio = ({ darkMode }) => {
   const [showQuote, setShowQuote] = useState(false);
   const [showSDET, setShowSDET] = useState(false);
@@ -163,6 +166,27 @@ const Portfolio = ({ darkMode }) => {
       hoverColor: "hover:text-purple-400"
     }
   ];
+
+  // Download handler with fallback for mobile
+  const handleResumeDownload = (e) => {
+    // Try to download
+    const link = document.createElement('a');
+    link.href = LOCAL_RESUME_PATH;
+    link.download = 'Ankush_Sharma_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Fallback: after 1.5s, if on mobile, redirect to Google Drive
+    setTimeout(() => {
+      // Simple mobile detection
+      if (/Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent)) {
+        window.location.href = GOOGLE_DRIVE_RESUME_URL;
+      }
+    }, 1500);
+    // Prevent default anchor behavior
+    e.preventDefault();
+  };
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white dark:bg-gray-900">
@@ -331,9 +355,10 @@ const Portfolio = ({ darkMode }) => {
             {/* Centering the Download Button */}
             <div className="flex justify-center">
               <motion.a 
-                href="/src/assets/resume/Ankush_Sharma_Resume.pdf"
+                href={LOCAL_RESUME_PATH}
                 download="Ankush_Sharma_Resume.pdf"
                 target="_blank"
+                onClick={handleResumeDownload}
               >
                 <DownloadButton />
               </motion.a>
